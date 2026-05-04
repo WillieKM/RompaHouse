@@ -68,8 +68,8 @@
   }
   .text-reveal-content {
     display: block;
-    transform: translateY(110%);
-    opacity: 0;
+    transform: translateY(0%);
+    opacity: 1;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
   }
   .text-reveal-active .text-reveal-content {
