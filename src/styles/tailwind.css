@@ -116,13 +116,12 @@
   }
 
   .nav-scrolled {
-    background: rgba(26, 43, 60, 0.92) !important;
-    backdrop-filter: blur(20px);
+    background: rgba(26, 43, 60, 0.96) !important;
+
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
+      background: #ffffff;
   }
 
   .card-rounded {
