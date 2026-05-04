@@ -129,22 +129,12 @@
     border-radius: var(--radius);
   }
 
-  .reveal {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .reveal-hidden {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-
-  .reveal-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
-
+ .reveal,
+.reveal-hidden,
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
   .faq-content {
     max-height: 0;
     overflow: hidden;
