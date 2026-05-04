@@ -150,5 +150,6 @@
   }
 
   .service-tab.active-tab h4 {
-    color: var(--primary);
-  }
+  color: var(--primary);
+}
+}
