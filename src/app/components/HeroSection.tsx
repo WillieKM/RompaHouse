@@ -26,7 +26,7 @@ const stats = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [titleVisible, setTitleVisible] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(true);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
