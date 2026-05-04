@@ -22,7 +22,7 @@ export default function ContactHero() {
           We'd love to hear from you.
         </h1>
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-white/60">
-          <Link href="/homepage" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
           <span className="text-white">Contact</span>
         </nav>
