@@ -14,7 +14,7 @@ export default function ContactHero() {
         className="object-cover" />
 
       {/* Scrim */}
-      <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-dark-bg/40 to-dark-bg/10" />
+     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 pt-40">
         <p className="text-xs font-bold uppercase tracking-[0.4em] text-accent mb-4">Get in Touch</p>
