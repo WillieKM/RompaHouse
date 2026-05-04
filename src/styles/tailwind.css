@@ -60,15 +60,15 @@
     transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Masked Text Reveal */
+  /* Masked Text Reveal — always visible, no fade */
   .text-reveal-wrapper {
-    overflow: hidden;
+    overflow: visible;
     display: inline-block;
     vertical-align: bottom;
   }
   .text-reveal-content {
     display: block;
-    transform: translateY(0%);
+    transform: translateY(0);
     opacity: 1;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
   }
@@ -155,11 +155,12 @@
     will-change: transform;
   }
 
-  /* Project/Service tab */
+  /* Service tab */
   .service-tab.active-tab h4 {
     color: var(--primary);
   }
   .service-tab.active-tab {
     border-left-color: var(--primary) !important;
     opacity: 1 !important;
-  
+  }
+}
