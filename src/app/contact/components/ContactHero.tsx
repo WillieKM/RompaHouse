@@ -11,7 +11,7 @@ export default function ContactHero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover" />
+        className="object-cover brightness-110 contrast-105"/>
 
       {/* Scrim */}
      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
