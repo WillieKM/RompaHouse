@@ -62,11 +62,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
@@ -81,18 +77,20 @@ export default function Header() {
 
   return (
     <>
+      {/* FIXED HEADER */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-       scrolled
-  ? 'nav-scrolled py-3'
-  : 'py-5 bg-dark-bg/40'
+          scrolled
+            ? 'bg-dark-bg/95 shadow-lg py-3'
+            : 'bg-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
+
           {/* Logo */}
-          <Link href="/homepage" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5">
             <AppLogo size={36} />
-            <span className="font-bold text-lg tracking-tight text-white leading-none">
+            <span className="font-bold text-lg tracking-tight text-white">
               Rompa<span className="font-light"> House</span>
             </span>
           </Link>
@@ -109,20 +107,18 @@ export default function Header() {
                 {item.href && !item.dropdown ? (
                   <Link
                     href={item.href}
-                    className="px-4 py-2 rounded-full text-[11px] font-semibold uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 flex items-center gap-1"
+                    className="px-4 py-2 rounded-full text-[11px] font-semibold uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
                   >
                     {item.label}
                   </Link>
                 ) : (
-                  <button
-                    className="px-4 py-2 rounded-full text-[11px] font-semibold uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 flex items-center gap-1"
-                  >
+                  <button className="px-4 py-2 rounded-full text-[11px] font-semibold uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 flex items-center gap-1">
                     {item.label}
                     {item.dropdown && (
                       <Icon
                         name="ChevronDownIcon"
                         size={12}
-                        className={`transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`}
+                        className={`transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`}
                       />
                     )}
                   </button>
@@ -135,16 +131,20 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter(item.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="glass-card rounded-2xl border border-white/20 shadow-2xl overflow-hidden">
+                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-border">
                       {item.dropdown.map((sub, idx) => (
                         <Link
                           key={idx}
                           href={sub.href}
-                          className="flex flex-col px-5 py-3.5 hover:bg-primary/5 transition-colors group border-b border-border/50 last:border-0"
+                          className="flex flex-col px-5 py-3.5 hover:bg-primary/5 transition-colors border-b border-border last:border-0"
                         >
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{sub.label}</span>
+                          <span className="text-sm font-semibold text-foreground hover:text-primary">
+                            {sub.label}
+                          </span>
                           {sub.description && (
-                            <span className="text-xs text-muted-foreground mt-0.5">{sub.description}</span>
+                            <span className="text-xs text-muted-foreground mt-0.5">
+                              {sub.description}
+                            </span>
                           )}
                         </Link>
                       ))}
@@ -165,79 +165,31 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Button */}
           <button
-            className="lg:hidden p-2.5 bg-white/15 backdrop-blur-md rounded-full text-white border border-white/20 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="lg:hidden p-2.5 bg-white/10 rounded-full text-white border border-white/20 flex items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             <Icon name={mobileOpen ? 'XMarkIcon' : 'Bars3Icon'} size={20} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div
-          className="fixed inset-0 z-40 backdrop-blur-md bg-dark-bg/95"
-          onClick={() => setMobileOpen(false)}
-        >
-          <div
-            className="absolute top-0 left-0 w-full pt-24 px-6 pb-10 overflow-y-auto max-h-screen"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <nav className="flex flex-col gap-1">
-              {navItems.map((item) => (
-                <div key={item.label}>
-                  {item.dropdown ? (
-                    <>
-                      <button
-                        className="w-full flex items-center justify-between px-4 py-4 text-white font-semibold text-base border-b border-white/10 min-h-[44px]"
-                        onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
-                      >
-                        {item.label}
-                        <Icon
-                          name="ChevronDownIcon"
-                          size={16}
-                          className={`transition-transform ${mobileExpanded === item.label ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                      {mobileExpanded === item.label && (
-                        <div className="pl-4 py-2 flex flex-col gap-1">
-                          {item.dropdown.map((sub, idx) => (
-                            <Link
-                              key={idx}
-                              href={sub.href}
-                              className="py-3 px-4 text-white/70 text-sm hover:text-white transition-colors min-h-[44px] flex items-center"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href!}
-                      className="block px-4 py-4 text-white font-semibold text-base border-b border-white/10 min-h-[44px] flex items-center"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <div className="mt-6">
+        <div className="fixed inset-0 z-40 bg-dark-bg/95" onClick={() => setMobileOpen(false)}>
+          <div className="absolute top-0 left-0 w-full pt-24 px-6 pb-10">
+            {navItems.map((item) => (
+              <div key={item.label}>
                 <Link
-                  href="/contact"
-                  className="block w-full text-center px-6 py-4 bg-primary text-white font-bold rounded-full text-sm min-h-[44px] flex items-center justify-center"
+                  href={item.href || '#'}
+                  className="block px-4 py-4 text-white border-b border-white/10"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Schedule a Tour
+                  {item.label}
                 </Link>
               </div>
-            </nav>
+            ))}
           </div>
         </div>
       )}
