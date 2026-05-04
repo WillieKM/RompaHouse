@@ -81,8 +81,8 @@ export default function Header() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-dark-bg/95 shadow-lg py-3'
-            : 'bg-transparent py-5'
+           ? 'bg-dark-bg/95 shadow-lg py-3'
+: 'bg-dark-bg/95 py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
