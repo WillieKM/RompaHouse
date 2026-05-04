@@ -164,3 +164,19 @@
     opacity: 1 !important;
   }
 }
+/* Fix hero text always visible */
+.text-reveal-content {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
