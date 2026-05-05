@@ -13,7 +13,7 @@ export default function CtaBanner() {
             alt="Bright, warm assisted living common room with comfortable seating, natural light and a peaceful atmosphere"
             fill
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover" />
+           className="object-cover brightness-110 contrast-105" />
 
           {/* Scrim — dark left to right for white text */}
          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
@@ -24,7 +24,7 @@ export default function CtaBanner() {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
               Come see what home really feels like.
             </h2>
-            <p className="text-white/75 text-base leading-relaxed mb-8">
+            <p className="text-white/90 text-base leading-relaxed mb-8">
               Tour our community, meet our team, and ask every question on your mind — with no pressure, no obligation.
             </p>
             <div className="flex flex-wrap gap-4">
