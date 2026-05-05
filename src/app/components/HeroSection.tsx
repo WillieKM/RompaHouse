@@ -9,7 +9,7 @@ const slides = [
   alt: 'Warm sunlit senior living common room'
 },
 {
- src: "/rompa-entarnce.jpeg",
+ src: "/rompa-entrance.jpeg",
   alt: 'Bright garden courtyard'
 },
 {
