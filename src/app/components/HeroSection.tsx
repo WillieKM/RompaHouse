@@ -9,7 +9,7 @@ const slides = [
   alt: 'Warm sunlit senior living common room'
 },
 {
-  src: "https://images.unsplash.com/photo-1586662129457-406695a68f86",
+ src: "/rompa-entarnce.jpeg",
   alt: 'Bright garden courtyard'
 },
 {
