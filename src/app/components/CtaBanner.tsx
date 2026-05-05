@@ -16,7 +16,7 @@ export default function CtaBanner() {
             className="object-cover" />
 
           {/* Scrim — dark left to right for white text */}
-          <div className="absolute inset-0 bg-gradient-to-r from-dark-bg/85 via-dark-bg/60 to-transparent" />
+         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
 
           {/* Content */}
           <div className="relative z-10 px-10 md:px-16 py-16 max-w-xl">
