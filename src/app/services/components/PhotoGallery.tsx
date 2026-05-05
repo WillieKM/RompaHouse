@@ -145,7 +145,7 @@ export default function PhotoGallery() {
               type="button"
               onClick={() => openLightbox(idx)}
               aria-label={`View photo: ${photo.caption}`}
-              className={`group relative overflow-hidden rounded-3xl bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary shadow-md hover:shadow-2xl transition-all duration-300 ${
+              className={`group relative overflow-hidden rounded-2xl bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary shadow-md hover:shadow-2xl transition-all duration-300 ${
                 featured
                   ? 'col-span-2 md:col-span-3 aspect-[5/3]'
                   : 'col-span-1 md:col-span-2 aspect-[4/3]'
@@ -156,10 +156,10 @@ export default function PhotoGallery() {
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                className="object-cover brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-500"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="absolute top-4 left-4">
                 <span className="rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shadow">
@@ -175,6 +175,9 @@ export default function PhotoGallery() {
 
               <div className="absolute bottom-0 left-0 right-0 p-5 text-left">
                 <span className="text-base font-bold text-white drop-shadow-md">
+                  <p className="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wide">
+  {photo.caption}
+</p>
                   {photo.caption}
                 </span>
               </div>
