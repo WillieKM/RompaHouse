@@ -1,46 +1,72 @@
 'use client';
+
 import React, { useState, useCallback } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 
 const photos = [
   {
-    src: '/images/living-room.jpg',
-    alt: 'Cozy main living room at Rompa House',
-    caption: 'Main Living Room',
+    src: '/assets/images/Rompa Living area.jpeg',
+    alt: 'Main living area at Rompa House',
+    caption: 'Living Area',
   },
   {
-    src: '/images/garden.jpg',
-    alt: 'Outdoor garden courtyard at Rompa House',
-    caption: 'Garden Courtyard',
-  },
-  {
-    src: '/images/dining.jpg',
+    src: '/assets/images/Rompa Dining.jpeg',
     alt: 'Dining room at Rompa House',
     caption: 'Dining Room',
   },
   {
-    src: '/images/activity-room.jpg',
-    alt: 'Activity room at Rompa House',
-    caption: 'Activities Room',
+    src: '/assets/images/Rompa Dining 2.jpeg',
+    alt: 'Second dining room view at Rompa House',
+    caption: 'Dining Room',
   },
   {
-    src: '/images/private-room.jpg',
-    alt: 'Private resident room at Rompa House',
-    caption: 'Private Room',
+    src: '/assets/images/Rompa Kitchen 1.jpeg',
+    alt: 'Kitchen at Rompa House',
+    caption: 'Kitchen',
   },
   {
-    src: '/images/common-area.jpg',
-    alt: 'Comfortable shared common area at Rompa House',
-    caption: 'Common Area',
+    src: '/assets/images/Rompa Kitchen 2.jpeg',
+    alt: 'Second kitchen view at Rompa House',
+    caption: 'Kitchen',
+  },
+  {
+    src: '/assets/images/Rompa Bedroom.jpeg',
+    alt: 'Resident bedroom at Rompa House',
+    caption: 'Bedroom',
+  },
+  {
+    src: '/assets/images/Rompa bedroom 2.jpeg',
+    alt: 'Second resident bedroom view at Rompa House',
+    caption: 'Bedroom',
+  },
+  {
+    src: '/assets/images/Rompa Entrance.jpeg',
+    alt: 'Entrance at Rompa House',
+    caption: 'Entrance',
+  },
+  {
+    src: '/assets/images/Rompa Hall way.jpeg',
+    alt: 'Hallway at Rompa House',
+    caption: 'Hallway',
+  },
+  {
+    src: '/assets/images/Rompa Hall way 2.jpeg',
+    alt: 'Second hallway view at Rompa House',
+    caption: 'Hallway',
   },
 ];
 
 export default function PhotoGallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  const openLightbox = useCallback((idx: number) => setLightboxIdx(idx), []);
-  const closeLightbox = useCallback(() => setLightboxIdx(null), []);
+  const openLightbox = useCallback((idx: number) => {
+    setLightboxIdx(idx);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIdx(null);
+  }, []);
 
   const prevPhoto = useCallback(() => {
     setLightboxIdx((prev) =>
@@ -71,20 +97,20 @@ export default function PhotoGallery() {
         </p>
       </div>
 
-      {/* Premium Gallery Grid */}
       <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
         {photos.map((photo, idx) => {
-          const featured = idx === 0 || idx === 3;
+          const featured = idx === 0 || idx === 2 || idx === 7;
 
           return (
             <button
               key={idx}
+              type="button"
               onClick={() => openLightbox(idx)}
               aria-label={`View photo: ${photo.caption}`}
               className={`group relative overflow-hidden rounded-2xl bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary shadow-md hover:shadow-xl transition-all duration-300 ${
                 featured
                   ? 'col-span-2 md:col-span-3 aspect-[5/3]'
-                  : 'col-span-1 md:col-span-3 aspect-[4/3]'
+                  : 'col-span-1 md:col-span-2 aspect-[4/3]'
               }`}
             >
               <AppImage
@@ -113,7 +139,6 @@ export default function PhotoGallery() {
         })}
       </div>
 
-      {/* Lightbox */}
       {lightboxIdx !== null && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
@@ -147,6 +172,7 @@ export default function PhotoGallery() {
             </div>
 
             <button
+              type="button"
               onClick={closeLightbox}
               className="absolute -top-5 -right-5 w-11 h-11 bg-white rounded-full flex items-center justify-center text-foreground hover:bg-muted transition-colors shadow-lg"
               aria-label="Close lightbox"
@@ -155,6 +181,7 @@ export default function PhotoGallery() {
             </button>
 
             <button
+              type="button"
               onClick={prevPhoto}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/15 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
               aria-label="Previous photo"
@@ -163,6 +190,7 @@ export default function PhotoGallery() {
             </button>
 
             <button
+              type="button"
               onClick={nextPhoto}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/15 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
               aria-label="Next photo"
@@ -174,6 +202,7 @@ export default function PhotoGallery() {
               {photos.map((_, idx) => (
                 <button
                   key={idx}
+                  type="button"
                   onClick={() => setLightboxIdx(idx)}
                   aria-label={`Go to photo ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
