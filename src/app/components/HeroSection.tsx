@@ -87,7 +87,13 @@ export default function HeroSection() {
             </span>
           </div>
 
-         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6.3rem] font-bold leading-[0.9] tracking-[-0.05em] max-w-5xl text-white">
+     <h1
+  className={`max-w-5xl text-[clamp(3.2rem,11vw,6.4rem)] leading-[0.92] tracking-[-0.06em] font-bold text-white mb-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.72)] transition-all duration-700 ${
+    titleVisible
+      ? 'opacity-100 translate-y-0'
+      : 'opacity-0 translate-y-6'
+  }`}
+>
   Personalized Adult Care
   <br />
   & Memory Support,
@@ -98,7 +104,6 @@ export default function HeroSection() {
   <br />
   Feels Like Home.
 </h1>
-
           <p
             className={`text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl mb-10 drop-shadow-md transition-all duration-700 ${
               titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
