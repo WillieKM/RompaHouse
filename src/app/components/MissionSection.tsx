@@ -11,7 +11,7 @@ export default function MissionSection() {
             <span className="w-16 h-px bg-white/80" />
           </div>
 
-          <h2 className="text-3xl md:text-[3.3rem] font-bold leading-tight tracking-tight max-w-3xl mb-6">
+          <h2 className="text-3xl md:text-[2.9rem] font-bold leading-tight tracking-tight max-w-3xl mb-6">
             Our mission is simple: to honor every resident&apos;s dignity while delivering high-quality, compassionate care tailored to their unique needs—physically, emotionally, and mentally.
           </h2>
 
