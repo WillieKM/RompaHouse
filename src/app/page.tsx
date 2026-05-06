@@ -23,7 +23,6 @@ export default function HomePage() {
     </main>
   );
 }
-import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
