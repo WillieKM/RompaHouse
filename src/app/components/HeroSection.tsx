@@ -105,9 +105,9 @@ export default function HeroSection() {
   Feels Like Home.
 </h1>
           <p
-            className={`text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl mb-10 drop-shadow-md transition-all duration-700 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
+           className={`text-white/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl sm:max-w-2xl mb-8 sm:mb-10 drop-shadow-md transition-all duration-700 ${
+  titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+}`}
           >
             A warm, home-like assisted living residence where every resident is
             personally known, deeply respected, and thoughtfully cared for each day.
@@ -134,7 +134,7 @@ export default function HeroSection() {
           </div>
 
           <div
-            className={`flex flex-wrap gap-8 md:gap-16 transition-all duration-700 ${
+           className={`flex flex-wrap gap-4 mb-14 transition-all duration-700 ${
               titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
