@@ -4,7 +4,7 @@ import AppImage from '@/components/ui/AppImage';
 
 const staff = [
 {
-  name: 'Dr. Patricia Nguyen',
+  name: 'Dr. Patricia ',
   role: 'Medical Director',
   bio: 'Board-certified geriatrician with 18 years in senior care. Leads our physician oversight and develops individualized care protocols.',
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_144fe309e-1763299127752.png",
@@ -12,7 +12,7 @@ const staff = [
   credentials: 'MD, Geriatrics · Johns Hopkins'
 },
 {
-  name: 'Marcus Thompson',
+  name: 'Marcus ',
   role: 'Director of Nursing',
   bio: 'RN with a specialty in memory care. Marcus oversees all clinical staff and maintains our 24/7 care protocols.',
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_1a76459c2-1772714043915.png",
@@ -20,7 +20,7 @@ const staff = [
   credentials: 'RN, BSN · 14 Years Experience'
 },
 {
-  name: 'Linda Kowalski',
+  name: 'Linda',
   role: 'Activities Coordinator',
   bio: 'Certified recreational therapist who builds the monthly activities calendar — from art workshops to community garden days.',
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_1c0007e95-1763295050768.png",
