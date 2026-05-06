@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
 import WelcomeSection from '@/app/components/WelcomeSection';
+import MissionSection from '@/app/components/MissionSection';
 import ServicesShowcase from '@/app/components/ServicesShowcase';
 import TestimonialsSection from '@/app/components/TestimonialsSection';
 import BlogSection from '@/app/components/BlogSection';
