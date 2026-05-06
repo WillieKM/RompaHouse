@@ -13,6 +13,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       <HeroSection />
+      import WelcomeSection from '@/app/components/WelcomeSection';
       <ServicesShowcase />
       <TestimonialsSection />
       <BlogSection />
