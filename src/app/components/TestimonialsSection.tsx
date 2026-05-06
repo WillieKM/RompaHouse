@@ -4,7 +4,7 @@ import AppImage from '@/components/ui/AppImage';
 
 const testimonials = [
 {
-  name: 'Margaret Sullivan',
+  name: 'Margaret Goldenbergh',
   role: 'Daughter of Resident',
   location: 'Spokane, WA',
   quote: 'Visionary care with genuine warmth.',
@@ -15,7 +15,7 @@ const testimonials = [
   position: 'absolute left-0 top-1/2 -translate-y-1/2'
 },
 {
-  name: 'James Whitfield',
+  name: 'James ',
   role: 'Son of Resident',
   location: 'Seattle, WA',
   quote: 'Peace of mind, every single day.',
@@ -26,7 +26,7 @@ const testimonials = [
   position: 'absolute left-20 top-1/3 -translate-y-1/2'
 },
 {
-  name: 'Dorothy Chen',
+  name: 'Dorothy ',
   role: 'Resident, 3 years',
   location: 'Spokane, WA',
   quote: 'This is truly my home.',
@@ -37,7 +37,7 @@ const testimonials = [
   position: 'absolute right-20 top-1/4 -translate-y-1/2'
 },
 {
-  name: 'Robert Okafor',
+  name: 'Robert ',
   role: 'Son of Resident',
   location: 'San Francisco, CA',
   quote: 'The staff genuinely care.',
