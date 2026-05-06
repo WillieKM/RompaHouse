@@ -16,6 +16,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <WelcomeSection />
+      <MissionSection />
       <ServicesShowcase />
       <TestimonialsSection />
       <FaqSection />
