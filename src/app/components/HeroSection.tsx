@@ -15,14 +15,14 @@ const slides = [
   },
   {
     src: 'https://img.rocket.new/generatedImages/rocket_gen_img_13eb12a0b-1772198540397.png',
-    alt: 'Resident and caregiver moment',
+    alt: 'Resident and caregiver moment',R
   },
 ];
 
 const stats = [
   { value: '16', label: 'Max Residents' },
   { value: '24/7', label: 'Dedicated Care' },
-  { value: 'RN-Led', label: 'Clinical Oversight' },
+  { value: 'Expert Medical Oversight', label: 'Clinical Oversight' },
 ];
 
 export default function HeroSection() {
