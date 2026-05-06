@@ -22,7 +22,7 @@ const slides = [
 const stats = [
   { value: '16', label: 'Max Residents' },
   { value: '24/7', label: 'Dedicated Care' },
-  { value: 'Expert Medical Oversight', label: 'Clinical Oversight' },
+  { value: 'Expert', label: 'Medical Oversight' },
 ];
 
 export default function HeroSection() {
