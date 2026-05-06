@@ -15,14 +15,14 @@ const slides = [
   },
   {
     src: 'https://img.rocket.new/generatedImages/rocket_gen_img_13eb12a0b-1772198540397.png',
-    alt: 'Resident and caregiver moment',R
+    alt: 'Resident and caregiver moment',
   },
 ];
 
 const stats = [
-  { value: '16', label: 'Max Residents' },
-  { value: '24/7', label: 'Dedicated Care' },
-  { value: 'Expert', label: 'Medical Oversight' },
+  { value: '16', label: 'Private Residents' },
+  { value: '24/7', label: 'Attentive Support' },
+  { value: 'Licensed', label: 'Care Team' },
 ];
 
 export default function HeroSection() {
@@ -31,14 +31,14 @@ export default function HeroSection() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setTitleVisible(true), 250);
+    const timer = setTimeout(() => setTitleVisible(true), 250);
 
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6500);
 
     return () => {
-      clearTimeout(t);
+      clearTimeout(timer);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, []);
@@ -61,14 +61,13 @@ export default function HeroSection() {
               fill
               priority={idx === 0}
               sizes="100vw"
-              className={`object-cover brightness-105 contrast-105 transition-transform duration-[6500ms] ease-out ${
+              className={`object-cover brightness-105 contrast-105 transition-transform duration-[8000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 idx === currentSlide ? 'scale-105' : 'scale-100'
               }`}
             />
           </div>
         ))}
 
-        {/* Luxury contrast system */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_70%_35%,transparent_0%,rgba(0,0,0,0.18)_45%,rgba(0,0,0,0.55)_100%)]" />
@@ -102,7 +101,7 @@ export default function HeroSection() {
             </span>
             <br />
             <span className="text-reveal-wrapper">
-              <span className="text-reveal-content text-white/95">
+              <span className="text-reveal-content text-white">
                 in a Place That Feels Like Home.
               </span>
             </span>
@@ -113,8 +112,8 @@ export default function HeroSection() {
               titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            Compassionate, dignified assisted living in a warm, home-like setting
-            where every resident is known, respected, and cared for.
+            A warm, home-like assisted living residence where every resident is
+            personally known, deeply respected, and thoughtfully cared for each day.
           </p>
 
           <div
@@ -124,16 +123,16 @@ export default function HeroSection() {
           >
             <Link
               href="/contact"
-              className="px-7 py-3.5 bg-white text-primary text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-2xl hover:-translate-y-0.5 min-h-[44px] flex items-center"
+              className="px-7 py-3.5 bg-white text-primary text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:-translate-y-1 hover:shadow-[0_18px_55px_rgba(0,0,0,0.45)] min-h-[44px] flex items-center"
             >
               Schedule a Tour
             </Link>
 
             <Link
               href="/services"
-              className="px-7 py-3.5 bg-white/10 border border-white/35 text-white text-sm font-bold uppercase tracking-widest rounded-full hover:bg-white/20 transition-all duration-300 shadow-xl hover:-translate-y-0.5 min-h-[44px] flex items-center"
+              className="px-7 py-3.5 bg-white/10 border border-white/35 text-white text-sm font-bold uppercase tracking-widest rounded-full hover:bg-white/20 transition-all duration-300 shadow-xl hover:-translate-y-1 min-h-[44px] flex items-center"
             >
-              Explore Services
+              View Our Care
             </Link>
           </div>
 
@@ -156,7 +155,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Slide indicators */}
+      {/* Slide Indicators */}
       <div className="absolute bottom-8 right-8 z-20 flex gap-2">
         {slides.map((_, idx) => (
           <button
