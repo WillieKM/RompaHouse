@@ -87,25 +87,17 @@ export default function HeroSection() {
             </span>
           </div>
 
-          <h1
-            className={`max-w-5xl text-[clamp(3.25rem,6.2vw,6.9rem)] leading-[0.9] tracking-[-0.055em] font-bold text-white mb-7 drop-shadow-[0_8px_28px_rgba(0,0,0,0.72)] ${
-              titleVisible ? 'text-reveal-active' : ''
-            }`}
-          >
-            <span className="text-reveal-wrapper">
-              <span className="text-reveal-content">Personalized Adult Care</span>
-            </span>
-            <br />
-            <span className="text-reveal-wrapper">
-              <span className="text-reveal-content">&amp; Memory Support,</span>
-            </span>
-            <br />
-            <span className="text-reveal-wrapper">
-              <span className="text-reveal-content text-white">
-                in a Place That Feels Like Home.
-              </span>
-            </span>
-          </h1>
+         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6.3rem] font-bold leading-[0.9] tracking-[-0.05em] max-w-5xl text-white">
+  Personalized Adult Care
+  <br />
+  & Memory Support,
+  <br />
+  <span className="text-accent">
+    in a Place That
+  </span>
+  <br />
+  Feels Like Home.
+</h1>
 
           <p
             className={`text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl mb-10 drop-shadow-md transition-all duration-700 ${
