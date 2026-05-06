@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function WelcomeSection() {
   return (
-    <section className="relative bg-background px-6 md:px-10 py-24">
+    <section className="relative bg-background px-6 md:px-10 py-28 animate-fadeInUp">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
         
         <div className="lg:col-span-5">
