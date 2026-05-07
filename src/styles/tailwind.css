@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --background: #F7F8FA;
   --foreground: #1E2D3D;
@@ -40,6 +39,7 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -50,6 +50,15 @@
   h6,
   p {
     margin: 0;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: rgba(44, 95, 138, 0.18);
   }
 }
 
@@ -78,7 +87,6 @@
     font-weight: 700;
   }
 
-  /* FIXED CAROUSEL */
   .carousel-slide {
     position: absolute;
     inset: 0;
@@ -103,38 +111,52 @@
     object-fit: cover;
   }
 
-  /* Optional dark overlay for readable white text */
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26, 43, 60, 0.45);
-    z-index: 2;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-  }
-
   .nav-scrolled {
     background: rgba(26, 43, 60, 0.96) !important;
-
   }
 
   .glass-card {
-      background: #ffffff;
+    background: #ffffff;
   }
 
   .card-rounded {
     border-radius: var(--radius);
   }
 
- .reveal,
-.reveal-hidden,
-.reveal-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  .reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .luxury-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .luxury-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 70px rgba(26, 43, 60, 0.14);
+  }
+
+  .luxury-image {
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
+  }
+
+  .group:hover .luxury-image {
+    transform: scale(1.045);
+  }
+
   .faq-content {
     max-height: 0;
     overflow: hidden;
@@ -151,36 +173,86 @@
   }
 
   .service-tab.active-tab h4 {
-  color: var(--primary);
-}
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    color: var(--primary);
   }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease forwards;
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
+@layer utilities {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  @keyframes softFade {
+    from {
+      opacity: 0;
+    }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.9s ease forwards;
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slowZoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.06);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.9s ease forwards;
+  }
+
+  .animate-softFade {
+    animation: softFade 0.8s ease forwards;
+  }
+
+  .animate-slowZoom {
+    animation: slowZoom 8s ease-out forwards;
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal-hidden,
+    .reveal-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }
