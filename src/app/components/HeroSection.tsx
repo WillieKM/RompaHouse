@@ -8,14 +8,23 @@ const slides = [
   {
     src: 'https://img.rocket.new/generatedImages/rocket_gen_img_17513afee-1776428709880.png',
     alt: 'Warm sunlit senior living common room',
+    fit: 'cover' as const,
   },
   {
     src: '/rompa-entrance.jpeg',
     alt: 'Rompa House entrance',
+    fit: 'cover' as const,
   },
   {
     src: 'https://img.rocket.new/generatedImages/rocket_gen_img_13eb12a0b-1772198540397.png',
     alt: 'Resident and caregiver moment',
+    fit: 'cover' as const,
+  },
+  {
+    src: '/assets/images/app_logo.jpg',
+    alt: 'Rompa House Assisted Living logo',
+    fit: 'contain' as const,
+    bg: 'bg-white',
   },
 ];
 
@@ -59,7 +68,7 @@ export default function HeroSection() {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`carousel-slide ${
+            className={`carousel-slide ${slide.bg ?? ''} ${
               idx === currentSlide ? 'active' : ''
             }`}
           >
@@ -69,7 +78,7 @@ export default function HeroSection() {
               fill
               priority={idx === 0}
               sizes="100vw"
-              className={`object-cover transition-transform duration-[9000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`${slide.fit === 'contain' ? 'object-contain' : 'object-cover'} transition-transform duration-[9000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 idx === currentSlide
                   ? 'scale-105'
                   : 'scale-100'

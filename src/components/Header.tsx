@@ -99,7 +99,7 @@ export default function Header() {
               href="/"
               className="flex items-center gap-3 shrink-0"
             >
-              <AppLogo size={52} />
+              <AppLogo size={38} />
 
               <span
                 className={`font-bold text-xl tracking-tight transition-colors duration-300 ${textClasses}`}
