@@ -8,7 +8,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { firstName, lastName, email, phone, relationship, message } = body;
 
-    await resend.emails.send({
+    const { error: resendError } = await resend.emails.send({
+
       from: 'Rompa House Contact Form <onboarding@resend.dev>',
       to: ['contact@rompahouse.com', 'williesdrive@gmail.com'],
       replyTo: email,
@@ -31,6 +32,11 @@ export async function POST(request: Request) {
         </div>
       `,
     });
+
+    if (resendError) {
+      console.error('Resend error:', resendError);
+      return NextResponse.json({ error: resendError.message }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
