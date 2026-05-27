@@ -47,6 +47,8 @@ const whatToExpect = [
 export default function ContactSplit() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const validate = (): boolean => {
@@ -68,11 +70,24 @@ export default function ContactSplit() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    // Backend connection point — submit form data to your preferred service here
-    setSubmitted(true);
+    setSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Failed to send');
+      setSubmitted(true);
+    } catch {
+      setSendError('Something went wrong. Please call us or try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -212,12 +227,17 @@ export default function ContactSplit() {
                     {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
                   </div>
 
+                  {sendError && (
+                    <p className="text-sm text-red-500 text-center">{sendError}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-4 bg-primary text-primary-foreground text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-accent transition-colors shadow-lg hover:shadow-xl min-h-[44px] flex items-center justify-center gap-2"
+                    disabled={sending}
+                    className="w-full py-4 bg-primary text-primary-foreground text-sm font-bold uppercase tracking-widest rounded-xl hover:bg-accent transition-colors shadow-lg hover:shadow-xl min-h-[44px] flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Inquiry
-                    <Icon name="ArrowRightIcon" size={16} />
+                    {sending ? 'Sending...' : 'Send Inquiry'}
+                    {!sending && <Icon name="ArrowRightIcon" size={16} />}
                   </button>
 
                   <p className="text-xs text-muted-foreground text-center">
