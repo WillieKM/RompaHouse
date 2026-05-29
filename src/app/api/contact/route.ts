@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const { firstName, lastName, email, phone, relationship, message } = body;
     const { error: resendError } = await resend.emails.send({
       from: 'Rompa House Contact Form <onboarding@resend.dev>',
-      to: ['contact@rompahouse.com'],
+      to: ['williesdrive@gmail.com'],
       replyTo: email,
       subject: `New Inquiry from ${firstName} ${lastName}`,
       html: `
@@ -35,8 +35,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: resendError.message }, { status: 500 });
     }
 
-    // Auto-reply to the person who submitted the form
-    await resend.emails.send({
+    // Auto-reply — fails silently until domain is verified in Resend
+    try { await resend.emails.send({
       from: 'Rompa House <onboarding@resend.dev>',
       to: [email],
       subject: 'We received your inquiry — Rompa House Assisted Living',
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
           </div>
         </div>
       `,
-    });
+    }); } catch { /* auto-reply failed silently */ }
 
     return NextResponse.json({ success: true });
   } catch (error) {
