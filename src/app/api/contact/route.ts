@@ -6,13 +6,9 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { firstName, lastName, email, phone, relationship, message } = body;
-    console.log('API hit — key present:', !!process.env.RESEND_API_KEY);
-    console.log('Sending to: williesdrive@gmail.com');
-
     const { error: resendError } = await resend.emails.send({
-
       from: 'Rompa House Contact Form <onboarding@resend.dev>',
-      to: ['williesdrive@gmail.com'],
+      to: ['contact@rompahouse.com'],
       replyTo: email,
       subject: `New Inquiry from ${firstName} ${lastName}`,
       html: `
