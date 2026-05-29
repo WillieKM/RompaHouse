@@ -35,6 +35,37 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: resendError.message }, { status: 500 });
     }
 
+    // Auto-reply to the person who submitted the form
+    await resend.emails.send({
+      from: 'Rompa House <onboarding@resend.dev>',
+      to: [email],
+      subject: 'We received your inquiry — Rompa House Assisted Living',
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1E2D3D;">
+          <div style="background: #2C5F8A; padding: 32px 40px; border-radius: 12px 12px 0 0;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Rompa House Assisted Living</h1>
+            <p style="color: rgba(255,255,255,0.8); margin: 6px 0 0; font-size: 14px;">A home. A family. A purpose.</p>
+          </div>
+          <div style="background: #ffffff; padding: 36px 40px; border: 1px solid #D4E2EE; border-top: none;">
+            <p style="font-size: 18px; font-weight: 600; margin: 0 0 16px;">Hi ${firstName}, thank you for reaching out!</p>
+            <p style="line-height: 1.7; color: #5A7A94;">We've received your inquiry and a member of our admissions team will be in touch with you within <strong style="color: #1E2D3D;">one business day</strong>.</p>
+            <p style="line-height: 1.7; color: #5A7A94;">In the meantime, if you have an urgent question, please don't hesitate to call us directly.</p>
+            <div style="background: #EEF4F9; border-radius: 10px; padding: 20px 24px; margin: 24px 0;">
+              <p style="margin: 0 0 8px; font-weight: 600; color: #2C5F8A;">Contact Us Directly</p>
+              <p style="margin: 0 0 4px; font-size: 14px;">📞 <a href="tel:+15093815858" style="color: #2C5F8A; text-decoration: none;">(509) 381-5858</a></p>
+              <p style="margin: 0 0 4px; font-size: 14px;">✉️ <a href="mailto:contact@rompahouse.com" style="color: #2C5F8A; text-decoration: none;">contact@rompahouse.com</a></p>
+              <p style="margin: 0; font-size: 14px;">📍 2116 E 1st Ave, Spokane, WA 99202</p>
+            </div>
+            <p style="line-height: 1.7; color: #5A7A94;">We look forward to speaking with you and learning how we can best support your family.</p>
+            <p style="margin: 24px 0 0; color: #1E2D3D; font-weight: 600;">Warm regards,<br/>The Rompa House Team</p>
+          </div>
+          <div style="background: #EEF4F9; padding: 16px 40px; border-radius: 0 0 12px 12px; text-align: center;">
+            <p style="margin: 0; font-size: 12px; color: #5A7A94;">Rompa House Assisted Living · Licensed Care Facility · Spokane, WA</p>
+          </div>
+        </div>
+      `,
+    });
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Contact form error:', error);
