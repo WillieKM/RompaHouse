@@ -6,9 +6,63 @@ import Icon from '@/components/ui/AppIcon';
 
 const photos = [
   {
+    src: '/rompa-exterior-yard.jpeg',
+    alt: 'Exterior yard with magnolia tree and gazebo at Rompa House',
+    caption: 'Yard & Garden',
+    category: 'Exterior',
+  },
+  {
+    src: '/rompa-exterior-yard-2.jpeg',
+    alt: 'Exterior yard with picnic bench at Rompa House',
+    caption: 'Outdoor Seating',
+    category: 'Exterior',
+  },
+  {
+    src: '/rompa-entrance.jpeg',
+    alt: 'Entrance at Rompa House',
+    caption: 'Entrance',
+    category: 'Exterior',
+  },
+  {
+    src: '/rompa-parking.jpeg',
+    alt: 'Parking area and gated exterior at Rompa House',
+    caption: 'Parking',
+    category: 'Exterior',
+  },
+  {
     src: '/rompa-living-area.jpeg',
     alt: 'Living area at Rompa House',
     caption: 'Living Area',
+    category: 'Living Spaces',
+  },
+  {
+    src: '/rompa-living-area-2.jpeg',
+    alt: 'Living and dining area at Rompa House',
+    caption: 'Living Area',
+    category: 'Living Spaces',
+  },
+  {
+    src: '/rompa-accessible-ramp.jpeg',
+    alt: 'Covered accessible ramp and walkway at Rompa House',
+    caption: 'Accessible Walkway',
+    category: 'Living Spaces',
+  },
+  {
+    src: '/rompa-hallway.jpeg',
+    alt: 'Hallway at Rompa House',
+    caption: 'Hallway',
+    category: 'Living Spaces',
+  },
+  {
+    src: '/rompa-hallway-2.jpeg',
+    alt: 'Second hallway view at Rompa House',
+    caption: 'Hallway',
+    category: 'Living Spaces',
+  },
+  {
+    src: '/rompa-hallway-3.jpeg',
+    alt: 'Interior hallway with hardwood floors at Rompa House',
+    caption: 'Hallway',
     category: 'Living Spaces',
   },
   {
@@ -20,6 +74,18 @@ const photos = [
   {
     src: '/rompa-dining-2.jpeg',
     alt: 'Second dining room view at Rompa House',
+    caption: 'Dining Room',
+    category: 'Dining',
+  },
+  {
+    src: '/rompa-dining-3.jpeg',
+    alt: 'Dining room with natural light at Rompa House',
+    caption: 'Dining Room',
+    category: 'Dining',
+  },
+  {
+    src: '/rompa-dining-4.jpeg',
+    alt: 'Dining room second angle at Rompa House',
     caption: 'Dining Room',
     category: 'Dining',
   },
@@ -48,26 +114,38 @@ const photos = [
     category: 'Rooms',
   },
   {
-    src: '/rompa-entrance.jpeg',
-    alt: 'Entrance at Rompa House',
-    caption: 'Entrance',
-    category: 'Exterior',
+    src: '/rompa-bedroom-3.jpeg',
+    alt: 'Bedroom with bed and TV at Rompa House',
+    caption: 'Bedroom',
+    category: 'Rooms',
   },
   {
-    src: '/rompa-hallway.jpeg',
-    alt: 'Hallway at Rompa House',
-    caption: 'Hallway',
-    category: 'Living Spaces',
+    src: '/rompa-bedroom-sitting.jpeg',
+    alt: 'Bedroom sitting area with armchairs and TV at Rompa House',
+    caption: 'Bedroom Sitting Area',
+    category: 'Rooms',
   },
   {
-    src: '/rompa-hallway-2.jpeg',
-    alt: 'Second hallway view at Rompa House',
-    caption: 'Hallway',
-    category: 'Living Spaces',
+    src: '/rompa-bathroom.jpeg',
+    alt: 'ADA accessible bathroom with grab bars at Rompa House',
+    caption: 'ADA Bathroom',
+    category: 'Bathrooms',
+  },
+  {
+    src: '/rompa-bathroom-2.jpeg',
+    alt: 'Bathroom with toilet and accessible shower at Rompa House',
+    caption: 'Bathroom',
+    category: 'Bathrooms',
+  },
+  {
+    src: '/rompa-shower.jpeg',
+    alt: 'Accessible roll-in shower with handheld showerhead at Rompa House',
+    caption: 'Accessible Shower',
+    category: 'Bathrooms',
   },
 ];
 
-const categories = ['All', 'Living Spaces', 'Dining', 'Rooms', 'Exterior'];
+const categories = ['All', 'Living Spaces', 'Dining', 'Rooms', 'Bathrooms', 'Exterior'];
 
 export default function PhotoGallery() {
   const [activeCategory, setActiveCategory] = useState('All');
