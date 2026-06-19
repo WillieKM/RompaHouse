@@ -252,12 +252,9 @@ export default function PhotoGallery() {
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-5 text-left">
-                <span className="text-base font-bold text-white drop-shadow-md">
-                  <p className="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wide">
-  {photo.caption}
-</p>
+                <p className="text-sm font-semibold text-white drop-shadow-md tracking-wide">
                   {photo.caption}
-                </span>
+                </p>
               </div>
             </button>
           );
