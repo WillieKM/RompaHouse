@@ -5,13 +5,15 @@ import Link from 'next/link';
 export default function ContactHero() {
   return (
     <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-      <AppImage
-        src="https://img.rocket.new/generatedImages/rocket_gen_img_13eb12a0b-1772198540397.png"
-        alt="Compassionate caregiver and senior resident having a warm conversation in a cozy private suite with soft afternoon light"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover brightness-110 contrast-105"/>
+      <div className="absolute inset-0">
+        <AppImage
+          src="https://img.rocket.new/generatedImages/rocket_gen_img_13eb12a0b-1772198540397.png"
+          alt="Compassionate caregiver and senior resident having a warm conversation in a cozy private suite with soft afternoon light"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover brightness-110 contrast-105"/>
+      </div>
 
       {/* Scrim */}
      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
