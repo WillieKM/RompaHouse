@@ -10,6 +10,7 @@ type FormData = {
   relationship: string;
   moveInTimeline: string;
   message: string;
+  company: string;
 };
 
 const initialForm: FormData = {
@@ -20,6 +21,7 @@ const initialForm: FormData = {
   relationship: '',
   moveInTimeline: '',
   message: '',
+  company: '',
 };
 
 const timelineOptions = [
@@ -104,6 +106,18 @@ export default function ContactSplit() {
                 </p>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                  {/* Honeypot field: hidden from real users, catches basic bots */}
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+                  />
+
                   {/* Name row */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
