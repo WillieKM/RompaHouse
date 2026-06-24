@@ -7,8 +7,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { firstName, lastName, email, phone, relationship, message } = body;
     const { error: resendError } = await resend.emails.send({
-      from: 'Rompa House Contact Form <onboarding@resend.dev>',
-      to: ['williesdrive@gmail.com'],
+      from: 'Rompa House Contact Form <contact@rompahouse.com>',
+      to: ['contact@rompahouse.com'],
       replyTo: email,
       subject: `New Inquiry from ${firstName} ${lastName}`,
       html: `
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     }
 
     try { await resend.emails.send({
-      from: 'Rompa House <onboarding@resend.dev>',
+      from: 'Rompa House <contact@rompahouse.com>',
       to: [email],
       subject: 'We received your inquiry — Rompa House Assisted Living',
       html: `
